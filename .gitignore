@@ -1,0 +1,42 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build output
+**/dist
+apps/web/dist
+apps/api/dist
+
+# Environment variables — never commit these
+.env
+.env.local
+.env.production
+
+# BankID certificates — never commit these
+certs/
+
+# Vite
+apps/web/.vite
+
+# TypeScript
+*.tsbuildinfo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Prisma
+packages/db/generated
