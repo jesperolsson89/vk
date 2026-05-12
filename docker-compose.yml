@@ -4,7 +4,7 @@ services:
     working_dir: /app
     command: sh -c "npm install -g pnpm && pnpm install && pnpm --filter web dev"
     ports:
-      - "5173:5173"
+      - "127.0.0.1:5173:5173"
     volumes:
       - .:/app
       - web_node_modules:/app/node_modules
@@ -20,7 +20,7 @@ services:
     working_dir: /app
     command: sh -c "npm install -g pnpm && pnpm install && pnpm --filter api dev"
     ports:
-      - "3001:3001"
+      - "127.0.0.1:3001:3001"
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/vk
       BANKID_CERT_PATH: /certs/bankid.p12
