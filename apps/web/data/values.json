@@ -1,0 +1,398 @@
+{
+  "values": [
+    {
+      "id": 1,
+      "name": "ACCEPTANS",
+      "description": "att bli accepterad som jag är"
+    },
+    {
+      "id": 2,
+      "name": "FÖRSIKTIGHET",
+      "description": "att ha genomtänkta åsikter och övertygelser"
+    },
+    {
+      "id": 3,
+      "name": "PRESTATION",
+      "description": "att uppnå meningsfulla resultat"
+    },
+    {
+      "id": 4,
+      "name": "ÄVENTYR",
+      "description": "att skaffa nya och spännande erfarenheter"
+    },
+    {
+      "id": 5,
+      "name": "ATTRAKTION",
+      "description": "att vara fysiskt attraktiv"
+    },
+    {
+      "id": 6,
+      "name": "AUKTORITET",
+      "description": "att vara den som bestämmer och att vara ansvarig för andra"
+    },
+    {
+      "id": 7,
+      "name": "AUTONOMI",
+      "description": "att vara oberoende och bestämma över mig själv"
+    },
+    {
+      "id": 8,
+      "name": "SKÖNHET",
+      "description": "att uppskatta det vackra runt omkring mig"
+    },
+    { "id": 9, "name": "OMSORG", "description": "att bry mig om andra" },
+    {
+      "id": 10,
+      "name": "VÄLBEFINNANDE",
+      "description": "att leva ett behagligt och komfortabelt liv"
+    },
+    {
+      "id": 11,
+      "name": "ENGAGEMANG",
+      "description": "att engagera mig i långsiktiga och meningsfulla åtaganden"
+    },
+    {
+      "id": 12,
+      "name": "MEDKÄNSLA",
+      "description": "att känna och visa medkänsla med andra"
+    },
+    {
+      "id": 13,
+      "name": "VARIATION",
+      "description": "att leva ett liv fyllt av variation och omväxling"
+    },
+    {
+      "id": 14,
+      "name": "INSATS",
+      "description": "att göra en varaktig insats i världen"
+    },
+    {
+      "id": 15,
+      "name": "HÖVLIGHET",
+      "description": "att vara omtänksam och tillmötesgående mot andra människor"
+    },
+    {
+      "id": 16,
+      "name": "KREATIVITET",
+      "description": "att ha nya och originella idéer"
+    },
+    {
+      "id": 17,
+      "name": "PÅLITLIGHET",
+      "description": "att vara trovärdig och pålitlig"
+    },
+    {
+      "id": 18,
+      "name": "PLIKTKÄNSLA",
+      "description": "att utföra mina plikter och skyldigheter"
+    },
+    {
+      "id": 19,
+      "name": "EKOLOGI",
+      "description": "att leva i harmoni med natur och miljö"
+    },
+    {
+      "id": 20,
+      "name": "TROHET",
+      "description": "att vara lojal och uppriktig i relationer"
+    },
+    {
+      "id": 21,
+      "name": "BERÖMMELSE",
+      "description": "att vara känd och erkänd"
+    },
+    {
+      "id": 22,
+      "name": "FAMILJ",
+      "description": "att ha en lycklig och kärleksfull familj"
+    },
+    {
+      "id": 23,
+      "name": "FLEXIBILITET",
+      "description": "att lätt kunna anpassa mig till nya omständigheter"
+    },
+    {
+      "id": 24,
+      "name": "FÖRLÅTELSE",
+      "description": "att kunna förlåta andra"
+    },
+    {
+      "id": 25,
+      "name": "VÄNSKAP",
+      "description": "att ha nära och uppmuntrande vänner"
+    },
+    { "id": 26, "name": "SKOJ", "description": "att kunna leka och ha roligt" },
+    { "id": 27, "name": "GENEROSITET", "description": "att ge till andra" },
+    {
+      "id": 28,
+      "name": "ÄKTHET",
+      "description": "att uppträda så att jag är sann emot mig själv"
+    },
+    { "id": 29, "name": "GUD", "description": "att söka och lyda Gud" },
+    {
+      "id": 30,
+      "name": "UTVECKLING",
+      "description": "att förändra mig och ständigt utvecklas"
+    },
+    {
+      "id": 31,
+      "name": "HÄLSA",
+      "description": "att vara fysiskt frisk och må bra"
+    },
+    {
+      "id": 32,
+      "name": "HJÄLPSAMHET",
+      "description": "att vara hjälpsam mot andra"
+    },
+    {
+      "id": 33,
+      "name": "ÄRLIGHET",
+      "description": "att vara ärlig och uppriktig"
+    },
+    {
+      "id": 34,
+      "name": "HOPPFULLHET",
+      "description": "att ha ett positivt och optimistiskt förhållningssätt"
+    },
+    {
+      "id": 35,
+      "name": "ÖDMJUKHET",
+      "description": "att vara blygsam och inte ha förutfattade meningar"
+    },
+    {
+      "id": 36,
+      "name": "HUMOR",
+      "description": "att kunna se på mig själv och omvärlden med humor"
+    },
+    {
+      "id": 37,
+      "name": "OBEROENDE",
+      "description": "att inte vara beroende av andra"
+    },
+    {
+      "id": 38,
+      "name": "STRÄVSAMHET",
+      "description": "att arbeta hårt och idogt på mina uppgifter i livet"
+    },
+    { "id": 39, "name": "INRE RO", "description": "att känna personlig frid" },
+    {
+      "id": 40,
+      "name": "NÄRHET",
+      "description": "att dela mina innersta känslor och erfarenheter med andra"
+    },
+    {
+      "id": 41,
+      "name": "RÄTTVISA",
+      "description": "att verka för rättvis och lika behandling för alla"
+    },
+    {
+      "id": 42,
+      "name": "KUNSKAP",
+      "description": "att lära mig och förmedla värdefull kunskap"
+    },
+    {
+      "id": 43,
+      "name": "FRITID",
+      "description": "att ta mig tid och koppla av och roa mig"
+    },
+    {
+      "id": 44,
+      "name": "LOGIK",
+      "description": "att leva rationellt och förståndigt"
+    },
+    {
+      "id": 45,
+      "name": "ÄLSKAD",
+      "description": "att vara älskad av mina närmaste"
+    },
+    { "id": 46, "name": "ÄLSKA", "description": "att ge kärlek till andra" },
+    {
+      "id": 47,
+      "name": "SKICKLIGHET",
+      "description": "att vara duktig och kompetent i mina vardagliga sysslor"
+    },
+    {
+      "id": 48,
+      "name": "MÅTTFULLHET",
+      "description": "att undvika överdrifter och finna en medelväg"
+    },
+    {
+      "id": 49,
+      "name": "MONOGAMI",
+      "description": "att ha endast en djup kärleksrelation"
+    },
+    {
+      "id": 50,
+      "name": "ORDNING",
+      "description": "att leva ett liv som är välordnat och organiserat"
+    },
+    { "id": 51, "name": "VÄLBEHAG", "description": "att må bra" },
+    {
+      "id": 52,
+      "name": "POPULARITET",
+      "description": "att vara omtyckt av många människor"
+    },
+    { "id": 53, "name": "MAKT", "description": "att kunna styra över andra" },
+    {
+      "id": 54,
+      "name": "SYFTE",
+      "description": "att känna mål och mening i mitt liv"
+    },
+    {
+      "id": 55,
+      "name": "REALISM",
+      "description": "att se realistiskt och praktiskt på saker och ting och handla därefter"
+    },
+    {
+      "id": 56,
+      "name": "ANSVAR",
+      "description": "att fatta och genomföra ansvarsfulla beslut"
+    },
+    {
+      "id": 57,
+      "name": "RISK",
+      "description": "att våga chansa och ta risker"
+    },
+    {
+      "id": 58,
+      "name": "ROMANTIK",
+      "description": "att ha en intensiv och spännande kärlek i mitt liv"
+    },
+    {
+      "id": 59,
+      "name": "SÄKERHET",
+      "description": "att känna mig säker och trygg"
+    },
+    {
+      "id": 60,
+      "name": "SJÄLVKONTROLL",
+      "description": "att uppträda disciplinerat"
+    },
+    {
+      "id": 61,
+      "name": "SJÄLVKÄNSLA",
+      "description": "att acceptera mig själv som jag är"
+    },
+    {
+      "id": 62,
+      "name": "SJÄLVINSIKT",
+      "description": "att ha en djup och ärlig förståelse om mig själv"
+    },
+    {
+      "id": 63,
+      "name": "NYTTA",
+      "description": "att vara till tjänst och nytta för andra människor"
+    },
+    {
+      "id": 64,
+      "name": "ENKELHET",
+      "description": "att leva enkelt med små behov"
+    },
+    {
+      "id": 65,
+      "name": "ANDLIGHET",
+      "description": "att växa och mogna i andlig mening"
+    },
+    {
+      "id": 66,
+      "name": "STABILITET",
+      "description": "att leva ett lugnt liv utan större toppar eller vågdalar"
+    },
+    {
+      "id": 67,
+      "name": "STYRKA",
+      "description": "att vara i form och vara fysiskt stark"
+    },
+    {
+      "id": 68,
+      "name": "TOLERANS",
+      "description": "att acceptera och respektera människor som tycker annorlunda"
+    },
+    {
+      "id": 69,
+      "name": "TRADITION",
+      "description": "att följa och respektera gamla seder"
+    },
+    {
+      "id": 70,
+      "name": "DYGD",
+      "description": "att leva ett moraliskt riktigt och föredömligt liv"
+    },
+    { "id": 71, "name": "RIKEDOM", "description": "att ha gott om pengar" },
+    {
+      "id": 72,
+      "name": "VÄRLDSFRED",
+      "description": "att arbeta för att bringa fred i världen"
+    },
+    {
+      "id": 73,
+      "name": "SAMARBETE",
+      "description": "att arbeta effektivt och harmoniskt med andra"
+    },
+    {
+      "id": 74,
+      "name": "INTIMITET",
+      "description": "att ha nära och djupa emotionella relationer"
+    },
+    {
+      "id": 75,
+      "name": "LÄRANDE",
+      "description": "att ständigt utveckla mina kunskaper och färdigheter"
+    },
+    {
+      "id": 76,
+      "name": "FÖRNYELSE",
+      "description": "att kunna börja om och skapa nya möjligheter"
+    },
+    {
+      "id": 77,
+      "name": "KÄRLEK TILL NATUREN",
+      "description": "att uppskatta och känna samhörighet med naturen"
+    },
+    {
+      "id": 78,
+      "name": "MOD",
+      "description": "att våga stå upp för mig själv och andra även när det är svårt"
+    },
+    {
+      "id": 79,
+      "name": "BALANS",
+      "description": "att skapa jämvikt mellan arbete, fritid och vila"
+    },
+    {
+      "id": 80,
+      "name": "TÅLAMOD",
+      "description": "att acceptera att vissa saker tar tid"
+    },
+    {
+      "id": 81,
+      "name": "VISION",
+      "description": "att ha en tydlig bild av vart jag vill i livet"
+    },
+    {
+      "id": 82,
+      "name": "INFLYTANDE",
+      "description": "att kunna påverka samhälle och omgivning positivt"
+    },
+    {
+      "id": 83,
+      "name": "VÄLGÖRENHET",
+      "description": "att bidra till andras välfärd utan att förvänta mig något tillbaka"
+    },
+    {
+      "id": 84,
+      "name": "NYFIKENHET",
+      "description": "att vilja utforska och upptäcka nya saker"
+    },
+    {
+      "id": 85,
+      "name": "UPPSKATTNING",
+      "description": "att känna och visa tacksamhet för det jag har"
+    },
+    {
+      "id": 86,
+      "name": "SJÄLVFÖRVERKLIGANDE",
+      "description": "att förverkliga min fulla potential"
+    }
+  ]
+}
