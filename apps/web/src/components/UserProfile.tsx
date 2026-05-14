@@ -3,47 +3,34 @@ import pp from "../assets/account.svg";
 import UserResults from "./UserResults";
 
 interface User {
-  id: number;
   name: string;
-  givenname: string;
+  givenName: string;
   surname: string;
   personalNumber: string;
 }
 
 const UserProfile = () => {
-  const API_URL = "http://localhost:3001";
-  const id = 0;
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const [user, setUser] = useState<User | null>(null);
 
-  const fetchUser = async () => {
-    try {
-      const result = await fetch(`${API_URL}/users/${id}`);
-      if (!result.ok) throw new Error("Network error");
-      const data = await result.json();
-      return data;
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
-    }
-  };
-
   useEffect(() => {
-    fetchUser().then((data) => {
-      if (data) setUser(data);
-    });
-  }, [id]);
+    fetch(`${API_URL}/api/me`, { credentials: "include" })
+      .then((r) => r.json())
+      .then((data) => { if (data) setUser(data); })
+      .catch((err) => console.error("Failed to fetch user:", err));
+  }, []);
+
+  if (!user) return <p>Laddar...</p>;
 
   return (
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3 font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-md bg-primary-100">
-        <img src={pp}></img>
+        <img src={pp} />
         <div>
-          <h2>
-            {user?.givenname} {user?.surname}
-          </h2>
-          <p>{user?.personalNumber}</p>
+          <h2>{user.givenName} {user.surname}</h2>
+          <p>{user.personalNumber}</p>
         </div>
-      </div>{" "}
+      </div>
       <UserResults />
     </div>
   );
