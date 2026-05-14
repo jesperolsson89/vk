@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 interface User {
   id: number;
   name: string;
+  givenname: string;
+  surname: string,
+  personalNumber: string,
 }
 
-const Header = () => {
-  const API_URL = "http://localhost:3001";
+const UserProfile = () => {
+
+const API_URL = "http://localhost:3001";
   const id = 0;
 
   const [user, setUser] = useState<User | null>(null);
@@ -21,27 +25,22 @@ const Header = () => {
       console.error("Failed to fetch user:", error);
     }
   };
-  
 
   useEffect(() => {
     fetchUser().then(data => {
-      if (data) setUser(data);      
+      if (data) setUser(data);
     });
   }, [id]);
 
-  
-  
-
   return (
-    <>
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm px-6 py-4">
-        Värderingskollen
-        <button onClick={() => fetchUser()} className="bg-amber-400 border px-0.5 flex right-0 cursor-pointer">
-          Logga in {user?.name}
-        </button>
+    <div className="border gap-5 mx-5 px-5">
+      <div>UserProfile {user?.id}</div>
+      <div>
+        <h2>{user?.givenname} {user?.surname}</h2>
+        <p>{user?.personalNumber}</p>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Header;
+export default UserProfile;

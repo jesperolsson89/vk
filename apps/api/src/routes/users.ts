@@ -16,7 +16,15 @@ router.post("/", (req: any, res: any) => {
 router
   .route("/:id")
   .get((req: any, res: any) => {
-    res.json({ id: req.params.id, name: req.user.name });
+    res.json({
+      id: req.params.id,
+      ide: req.user.id,
+      role: req.user.role,
+      personalNumber: req.user.personalNumber,
+      name: req.user.name,
+      givenname: req.user.givenName,
+      surname: req.user.surname,
+    });
   })
   .put((req: any, res: any) => {
     res.send(`Update User With ID ${req.params.id}`);
@@ -25,11 +33,24 @@ router
     res.send(`Delete User With ID ${req.params.id}`);
   });
 
-  const users = [{ name: "Jeppis"}, { name: "Mongius"}, { name: "Kevin"}]
-router.param("id", (req: any, res: any, next: any, id: number, name: String) => {
-    req.user = users[id]
+// Mock users
+const users = [
+  {
+  "id": "cldx1a2b3c4d5e6f",
+  "personalNumber": "198001011234",
+  "name": "Erik Svensson",
+  "givenName": "Erik",
+  "surname": "Svensson",
+  "createdAt": "2026-01-15T10:30:00.000Z",
+  "updatedAt": "2026-03-22T14:15:00.000Z"
+},
+];
+router.param(
+  "id",
+  (req: any, res: any, next: any, id: number, name: String) => {
+    req.user = users[id];
     next();
-    
-})
+  },
+);
 
 module.exports = router;

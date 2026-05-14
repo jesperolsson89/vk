@@ -1,15 +1,17 @@
 import "./App.css";
+import BankButton from "./components/BankButton";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
     <>
       <Header />
       <div className="flex min-h-screen items-center justify-center bg-gray-100">
-        <h1 className="text-4xl font-bold text-blue-600">
-          Tailwind is working
-        </h1>
+       
+        <UserProfile/>
+        <BankButton/>
       </div>
       <Footer />
     </>
