@@ -1,8 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Cause&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Cause", cursive;
 
+   /* Primary — based around #486581 */
+  --color-primary-50: #f0f4f7;
+  --color-primary-100: #d6e4ed;
+  --color-primary-200: #b3cedd;
+  --color-primary-300: #8ab2c8;
+  --color-primary-400: #6395b1;
+  --color-primary-500: #557d9a;
+  --color-primary-600: #486581;
+  --color-primary-700: #384f66;
+  --color-primary-800: #273a4a;
+  --color-primary-900: #162330;
+
+  /* Neutral — cool gray with a blue tint to complement */
+  --color-neutral-50: #f4f6f8;
+  --color-neutral-100: #e4e9ed;
+  --color-neutral-200: #c9d2da;
+  --color-neutral-300: #a8b5c0;
+  --color-neutral-400: #8496a4;
+  --color-neutral-500: #637888;
+  --color-neutral-600: #4d5f6e;
+  --color-neutral-700: #384550;
+  --color-neutral-800: #252e36;
+  --color-neutral-900: #141920;
+
+  /* Accent — muted teal to complement the blue */
+  --color-accent-50: #f0f7f6;
+  --color-accent-100: #d0eae8;
+  --color-accent-200: #a3d4d0;
+  --color-accent-300: #6fb8b3;
+  --color-accent-400: #469993;
+  --color-accent-500: #357c77;
+  --color-accent-600: #286360;
+  --color-accent-700: #1e4a47;
+  --color-accent-800: #14312f;
+  --color-accent-900: #0a1918;
+
+  /* Semantic */
+  --color-background: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-text: #252e36;
+  --color-text-muted: #637888;
+  --color-text-light: #f0f4f7;
+  --color-border: #c9d2da;
+}
 
 body {
   font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
 }

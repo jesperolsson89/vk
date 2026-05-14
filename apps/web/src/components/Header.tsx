@@ -1,44 +1,14 @@
-import { useEffect, useState } from "react";
-
-interface User {
-  id: number;
-  name: string;
-}
+import BankButton from "./BankButton";
 
 const Header = () => {
-  const API_URL = "http://localhost:3001";
-  const id = 0;
-
-  const [user, setUser] = useState<User | null>(null);
-
-  const fetchUser = async () => {
-    try {
-      const result = await fetch(`${API_URL}/users/${id}`);
-      if (!result.ok) throw new Error("Network error");
-      const data = await result.json();
-      return data;
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
-    }
-  };
-  
-
-  useEffect(() => {
-    fetchUser().then(data => {
-      if (data) setUser(data);      
-    });
-  }, [id]);
-
-  
-  
-
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm px-6 py-4">
-        Värderingskollen
-        <button onClick={() => fetchUser()} className="bg-amber-400 border px-0.5 flex right-0 cursor-pointer">
-          Logga in {user?.name}
-        </button>
+      <div className="flex fixed top-0 left-0 right-0 z-50 bg-primary-600 shadow-sm px-6 py-4 justify-between">
+        <div className="flex-col">
+          <p className="py-1 text-3xl text-primary-50">Värderingskollen</p>
+          <p className="text-primary-50">Välkommen till värderingskollen!</p>
+        </div>
+        <BankButton />
       </div>
     </>
   );

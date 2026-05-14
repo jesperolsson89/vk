@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
+import pp from "../assets/account.svg";
+import UserResults from "./UserResults";
 
 interface User {
   id: number;
   name: string;
   givenname: string;
-  surname: string,
-  personalNumber: string,
+  surname: string;
+  personalNumber: string;
 }
 
 const UserProfile = () => {
-
-const API_URL = "http://localhost:3001";
+  const API_URL = "http://localhost:3001";
   const id = 0;
 
   const [user, setUser] = useState<User | null>(null);
@@ -27,18 +28,23 @@ const API_URL = "http://localhost:3001";
   };
 
   useEffect(() => {
-    fetchUser().then(data => {
+    fetchUser().then((data) => {
       if (data) setUser(data);
     });
   }, [id]);
 
   return (
-    <div className="border gap-5 mx-5 px-5">
-      <div>UserProfile {user?.id}</div>
-      <div>
-        <h2>{user?.givenname} {user?.surname}</h2>
-        <p>{user?.personalNumber}</p>
-      </div>
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-3 font-semibold px-6 py-3 rounded-lg transition-colors duration-200 shadow-md bg-primary-100">
+        <img src={pp}></img>
+        <div>
+          <h2>
+            {user?.givenname} {user?.surname}
+          </h2>
+          <p>{user?.personalNumber}</p>
+        </div>
+      </div>{" "}
+      <UserResults />
     </div>
   );
 };
