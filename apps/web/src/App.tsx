@@ -7,10 +7,8 @@ function App() {
   return (
     <>
       <Header />
-    <div className="flex min-h-screen items-center justify-center bg-primary-200">
-       
-        <UserProfile/>
-      
+      <div className="flex min-h-screen items-center justify-center bg-primary-200">
+        <UserProfile />
       </div>
       <Footer />
     </>

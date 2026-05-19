@@ -2,11 +2,7 @@ import { useState } from "react";
 import logo from "../assets/BankID_logo.png";
 import BankIDModal from "./BankIDModal";
 
-interface Props {
-  onLogin: (user: { givenName: string; name: string }) => void;
-}
-
-const BankButton = ({ onLogin }: Props) => {
+const BankButton = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -19,15 +15,7 @@ const BankButton = ({ onLogin }: Props) => {
         <p className="pr-4">Logga in</p>
       </button>
 
-      {showModal && (
-        <BankIDModal
-          onClose={() => setShowModal(false)}
-          onLogin={(user) => {
-            onLogin(user);
-            setShowModal(false);
-          }}
-        />
-      )}
+      {showModal && <BankIDModal onClose={() => setShowModal(false)} />}
     </>
   );
 };

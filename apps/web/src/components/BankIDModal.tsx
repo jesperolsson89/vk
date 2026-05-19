@@ -1,19 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 import logo from "../assets/BankID_logo.png";
+import BankIDQrCode from "./BankIDQrCode";
+import { useUser } from "../context/UserContext";
 
 type Step = "choose" | "same-device" | "other-device";
 
 interface Props {
   onClose: () => void;
-  onLogin: (user: { givenName: string; name: string }) => void;
 }
 
-const BankIDModal = ({ onClose, onLogin }: Props) => {
+const BankIDModal = ({ onClose }: Props) => {
   const API_URL = import.meta.env.VITE_API_URL;
+  const { setUser } = useUser();
   const [step, setStep] = useState<Step>("choose");
   const [orderRef, setOrderRef] = useState<string | null>(null);
   const [hint, setHint] = useState("");
-  const intervalRef = useRef<ReturnType<typeof setInterval>>();
+  const [qrStartToken, setQrStartToken] = useState("");
+  const [qrStartSecret, setQrStartSecret] = useState("");
+  const intervalRef = useRef<ReturnType<typeof setInterval>| undefined>(undefined);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -29,7 +33,10 @@ const BankIDModal = ({ onClose, onLogin }: Props) => {
       credentials: "include",
     });
     const data = await res.json();
+
     setOrderRef(data.orderRef);
+    setQrStartToken(data.qrStartToken);
+    setQrStartSecret(data.qrStartSecret);
     setStep(sameDevice ? "same-device" : "other-device");
 
     if (sameDevice) {
@@ -50,10 +57,13 @@ const BankIDModal = ({ onClose, onLogin }: Props) => {
 
       if (result.status === "complete") {
         clearInterval(intervalRef.current);
-        onLogin({
+        setUser({
           givenName: result.completionData.user.givenName,
           name: result.completionData.user.name,
+          surname: result.completionData.user.surname,
+          personalNumber: result.completionData.user.personalNumber,
         });
+        onClose();
       } else if (result.status === "failed") {
         clearInterval(intervalRef.current);
         setHint("Något gick fel. Försök igen.");
@@ -108,21 +118,29 @@ const BankIDModal = ({ onClose, onLogin }: Props) => {
         {step === "same-device" && (
           <div className="text-center">
             <p className="text-neutral-600 mb-4">{hint || "Öppnar BankID-appen..."}</p>
-            <button onClick={() => setStep("choose")} className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer">
+            <button
+              onClick={() => setStep("choose")}
+              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer"
+            >
               Avbryt
             </button>
           </div>
         )}
 
-        {/* Other device — QR code placeholder */}
+        {/* Other device — animated QR code */}
         {step === "other-device" && (
-          <div className="text-center">
-            <p className="text-neutral-600 mb-4">Skanna QR-koden med BankID-appen</p>
-            <div className="w-48 h-48 bg-neutral-100 rounded-xl mx-auto mb-4 flex items-center justify-center text-neutral-400 text-sm">
-              QR-kod här
-            </div>
+          <div className="text-center flex flex-col items-center gap-4">
+            <p className="text-neutral-600">Skanna QR-koden med BankID-appen</p>
+            <BankIDQrCode
+              qrStartToken={qrStartToken}
+              qrStartSecret={qrStartSecret}
+              active={step === "other-device"}
+            />
             <p className="text-sm text-neutral-500">{hint}</p>
-            <button onClick={() => setStep("choose")} className="text-sm text-neutral-400 hover:text-neutral-600 mt-3 cursor-pointer">
+            <button
+              onClick={() => setStep("choose")}
+              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer"
+            >
               Avbryt
             </button>
           </div>

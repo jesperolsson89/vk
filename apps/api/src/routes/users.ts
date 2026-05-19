@@ -38,9 +38,9 @@ const users = [
   {
   "id": "cldx1a2b3c4d5e6f",
   "personalNumber": "198001011234",
-  "name": "Jesper Testsson",
-  "givenName": "Jesper",
-  "surname": "Testsson",
+  "name": "Mock Mocksson",
+  "givenName": "Mock",
+  "surname": "Mocksson",
   "createdAt": "2026-01-15T10:30:00.000Z",
   "updatedAt": "2026-03-22T14:15:00.000Z"
 },
