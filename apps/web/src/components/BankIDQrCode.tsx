@@ -55,7 +55,7 @@ const BankIDQrCode = ({ qrStartToken, qrStartSecret, active }: Props) => {
 
       {isFullscreen && (
         <div
-          className="fixed inset-0 bg-black/80 flex flex-col items-center justify-center z-[100] animate-[fadeIn_0.2s_ease]"
+          className="fixed inset-0 bg-black/80 flex flex-col items-center justify-center z-100 animate-[fadeIn_0.2s_ease]"
           onClick={() => setIsFullscreen(false)}
         >
           <div

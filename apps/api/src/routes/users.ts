@@ -45,6 +45,7 @@ const users = [
   "updatedAt": "2026-03-22T14:15:00.000Z"
 },
 ];
+
 router.param(
   "id",
   (req: any, res: any, next: any, id: number, name: String) => {
