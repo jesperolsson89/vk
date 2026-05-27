@@ -1,14 +1,16 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import UserProfile from "./components/UserProfile";
+import Game from "./components/Game";
+// import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
     <>
       <Header />
-      <div className="flex min-h-screen items-center justify-center bg-primary-200">
-        <UserProfile />
+      <div className="flex flex-col min-h-screen items-center justify-center bg-primary-200">
+        {/* <UserProfile/> */}
+        <Game />
       </div>
       <Footer />
     </>

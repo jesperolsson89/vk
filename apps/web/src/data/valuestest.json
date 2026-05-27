@@ -1,0 +1,34 @@
+{
+  "values": [
+    {
+      "id": 1,
+      "name": "ACCEPTANS",
+      "description": "att bli accepterad som jag är"
+    },
+    {
+      "id": 2,
+      "name": "FÖRSIKTIGHET",
+      "description": "att ha genomtänkta åsikter och övertygelser"
+    },
+    {
+      "id": 3,
+      "name": "PRESTATION",
+      "description": "att uppnå meningsfulla resultat"
+    },
+    {
+      "id": 4,
+      "name": "ÄVENTYR",
+      "description": "att skaffa nya och spännande erfarenheter"
+    },
+    {
+      "id": 5,
+      "name": "ATTRAKTION",
+      "description": "att vara fysiskt attraktiv"
+    },
+    {
+      "id": 6,
+      "name": "AUKTORITET",
+      "description": "att vara den som bestämmer och att vara ansvarig för andra"
+    }
+  ]
+}
