@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bankidRouter from "./routes/bankid";
+import meRouter from "./routes/me";
 
 const app = express();
 app.use(logger);
@@ -21,6 +22,10 @@ app.get("/hello", (req, res) => {
 const userRouter = require("./routes/users");
 app.use("/users", userRouter);
 app.use("/api/bankid", bankidRouter);
+
+app.use("/api/bankid", bankidRouter);
+app.use("/api/me", meRouter);
+app.use("/api/logout", meRouter);
 
 function logger(req: any, res: any, next: any) {
   if (req.originalUrl !== "/health") {

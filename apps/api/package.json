@@ -13,15 +13,17 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.0",
   "dependencies": {
+    "@myapp/db": "workspace:*",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.19",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.6",
     "@types/node": "^24.12.2",
-    "nodemon": "^3.1.14",
+    "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "~6.0.3"
   }
