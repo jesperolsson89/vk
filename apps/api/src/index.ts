@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import bankidRouter from "./routes/bankid";
 import meRouter from "./routes/me";
+import resultsRouter from "./routes/results";
+import cookieParser from "cookie-parser";
 
 const app = express();
 app.use(logger);
@@ -20,6 +22,7 @@ app.get("/hello", (req, res) => {
 });
 
 const userRouter = require("./routes/users");
+app.use(cookieParser());
 app.use("/users", userRouter);
 app.use("/api/bankid", bankidRouter);
 
@@ -33,6 +36,8 @@ function logger(req: any, res: any, next: any) {
   }
   next();
 }
+
+app.use("/api/results", resultsRouter);
 
 app.listen(3001, "0.0.0.0", () => {
   console.log("API running on :3001");

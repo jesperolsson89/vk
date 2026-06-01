@@ -15,6 +15,7 @@ interface ValueContextType {
   totalValues: number;
   phase: Phase;
   topValues: { name: string; description: string }[];
+  saveResults: (topValues: string[]) => Promise<void>;
 }
 
 const ValueContext = createContext<ValueContextType | null>(null);
@@ -23,7 +24,9 @@ export const ValueProvider = ({ children }: { children: ReactNode }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [ratings, setRatings] = useState<Record<string, number>>({});
   const [phase, setPhase] = useState<Phase>("grading");
-  const [topValues, setTopValues] = useState<{ name: string; description: string }[]>([]);
+  const [topValues, setTopValues] = useState<
+    { name: string; description: string }[]
+  >([]);
 
   function rate(valueId: string, rating: number) {
     console.log(`${valueId}: ${rating}`);
@@ -42,7 +45,8 @@ export const ValueProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
-  const isComplete = currentIndex === values.length - 1 &&
+  const isComplete =
+    currentIndex === values.length - 1 &&
     ratings[values[currentIndex].name] !== undefined;
 
   // When grading is complete, find top values and move to reviewing phase
@@ -56,23 +60,35 @@ export const ValueProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [isComplete]);
 
-  const currentValue = phase === "grading"
-    ? values[currentIndex]
-    : topValues[currentIndex];
+  const currentValue =
+    phase === "grading" ? values[currentIndex] : topValues[currentIndex];
+
+  async function saveResults(topValues: string[]) {
+    const API_URL = import.meta.env.VITE_API_URL;
+    await fetch(`${API_URL}/api/results`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ ratings, topValues }),
+    });
+  }
 
   return (
-    <ValueContext.Provider value={{
-      currentIndex,
-      currentValue,
-      ratings,
-      rate,
-      next,
-      previous,
-      isComplete,
-      totalValues: phase === "grading" ? values.length : topValues.length,
-      phase,
-      topValues,
-    }}>
+    <ValueContext.Provider
+      value={{
+        currentIndex,
+        currentValue,
+        ratings,
+        rate,
+        next,
+        previous,
+        isComplete,
+        totalValues: phase === "grading" ? values.length : topValues.length,
+        phase,
+        topValues,
+        saveResults,
+      }}
+    >
       {children}
     </ValueContext.Provider>
   );

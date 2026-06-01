@@ -204,7 +204,7 @@ const ValueReview = () => {
           </div>
         )}
       </DragOverlay>
-      <SaveResults/>
+      <SaveResults chosen={chosen.map((v) => v.name)} />
     </DndContext>
   );
 };

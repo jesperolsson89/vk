@@ -32,7 +32,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   async function logout() {
-    await fetch(`${API_URL}/api/logout`, {
+    await fetch(`${API_URL}/api/me/logout`, {
       method: "POST",
       credentials: "include",
     });

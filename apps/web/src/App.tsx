@@ -1,19 +1,21 @@
-import "./App.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
 import Game from "./components/Game";
 import UserProfile from "./components/UserProfile";
+import Instructions from "./components/Instructions";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="flex flex-col min-h-screen items-center bg-primary-200 pt-16">
-        <UserProfile/>
-        <Game />
-      </div>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Instructions />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

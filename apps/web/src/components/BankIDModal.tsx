@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import logo from "../assets/BankID_logo.png";
 import BankIDQrCode from "./BankIDQrCode";
 import { useUser } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 type Step = "choose" | "same-device" | "other-device";
 
@@ -17,7 +18,10 @@ const BankIDModal = ({ onClose }: Props) => {
   const [hint, setHint] = useState("");
   const [qrStartToken, setQrStartToken] = useState("");
   const [qrStartSecret, setQrStartSecret] = useState("");
-  const intervalRef = useRef<ReturnType<typeof setInterval>| undefined>(undefined);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | undefined>(
+    undefined,
+  );
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -64,6 +68,7 @@ const BankIDModal = ({ onClose }: Props) => {
           personalNumber: result.completionData.user.personalNumber,
         });
         onClose();
+        navigate("/");
       } else if (result.status === "failed") {
         clearInterval(intervalRef.current);
         setHint("Något gick fel. Försök igen.");
@@ -74,7 +79,9 @@ const BankIDModal = ({ onClose }: Props) => {
           userSign: "Skriv in din säkerhetskod i BankID-appen.",
           noClient: "BankID-appen verkar inte vara installerad.",
         };
-        setHint(messages[result.hintCode] ?? "Följ instruktionerna i BankID-appen.");
+        setHint(
+          messages[result.hintCode] ?? "Följ instruktionerna i BankID-appen.",
+        );
       }
     }, 2000);
     return () => clearInterval(intervalRef.current);
@@ -92,13 +99,20 @@ const BankIDModal = ({ onClose }: Props) => {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <img src={logo} className="h-16 object-contain" />
-          <button onClick={onClose} className="text-neutral-400 hover:text-neutral-600 cursor-pointer text-2xl">✕</button>
+          <button
+            onClick={onClose}
+            className="text-neutral-400 hover:text-neutral-600 cursor-pointer text-2xl"
+          >
+            ✕
+          </button>
         </div>
 
         {/* Choose device */}
         {step === "choose" && (
           <div className="flex flex-col gap-3">
-            <h2 className="text-lg font-semibold text-neutral-800 mb-2">Logga in med BankID</h2>
+            <h2 className="text-lg font-semibold text-neutral-800 mb-2">
+              Logga in med BankID
+            </h2>
             <button
               onClick={() => startAuth(true)}
               className="bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl font-medium transition-colors cursor-pointer"
@@ -117,7 +131,9 @@ const BankIDModal = ({ onClose }: Props) => {
         {/* Same device — waiting */}
         {step === "same-device" && (
           <div className="text-center">
-            <p className="text-neutral-600 mb-4">{hint || "Öppnar BankID-appen..."}</p>
+            <p className="text-neutral-600 mb-4">
+              {hint || "Öppnar BankID-appen..."}
+            </p>
             <button
               onClick={() => setStep("choose")}
               className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer"
