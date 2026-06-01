@@ -32,42 +32,44 @@ const ValueGrader = () => {
   }
 
   return (
-    <div className="mx-2">
-      <div className="flex justify-between my-2 font-bold">
-        <p>Inte alls viktigt</p>
-        <p>Väldigt viktigt</p>
-      </div>
+    <div className="w-screen px-2 justify-center flex">
+      <div className="mx-2 min-w-10/12">
+        <div className="flex justify-between my-2 font-bold">
+          <p>Inte alls viktigt</p>
+          <p>Väldigt viktigt</p>
+        </div>
 
-      <div className="flex gap-2 items-center justify-between w-200">
-        {sizes.map((size, i) => (
-          <input
-            key={i}
-            type="radio"
-            name="group"
-            value={i}
-            checked={selected === i}
-            onChange={() => setSelected(i)}
-            className={`appearance-none ${size} rounded-full border-2 bg-neutral-100 checked:bg-primary-700 cursor-pointer`}
-          />
-        ))}
-      </div>
+        <div className="flex gap-3 items-center justify-between">
+          {sizes.map((size, i) => (
+            <input
+              key={i}
+              type="radio"
+              name="group"
+              value={i}
+              checked={selected === i}
+              onChange={() => setSelected(i)}
+              className={`appearance-none ${size} rounded-full border-2 bg-neutral-100 checked:bg-primary-700 cursor-pointer`}
+            />
+          ))}
+        </div>
 
-      <div className="flex justify-between my-5">
-        <button
-          onClick={handlePrevious}
-          className="flex items-center gap-2 font-semibold bg-white rounded-lg shadow-md cursor-pointer px-4 py-2 hover:bg-primary-50 transition-colors"
-        >
-          <span>←</span>
-          Tillbaka
-        </button>
-        <button
-          onClick={handleNext}
-          disabled={selected === null}
-          className="flex items-center gap-2 font-semibold bg-white rounded-lg shadow-md cursor-pointer px-4 py-2 hover:bg-primary-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          Nästa
-          <span>→</span>
-        </button>
+        <div className="flex justify-between my-5">
+          <button
+            onClick={handlePrevious}
+            className="flex items-center border border-primary-900 gap-2 font-semibold bg-white rounded-lg shadow-xs cursor-pointer px-4 py-2 hover:bg-primary-50 transition-colors"
+          >
+            <span>←</span>
+            Tillbaka
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={selected === null}
+            className="flex items-center border border-primary-900 gap-2 font-semibold bg-white rounded-lg shadow-xs cursor-pointer px-4 py-2 hover:bg-primary-50 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Nästa
+            <span>→</span>
+          </button>
+        </div>
       </div>
     </div>
   );

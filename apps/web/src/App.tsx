@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="flex flex-col min-h-screen items-center justify-center bg-primary-200">
+      <div className="flex flex-col min-h-screen items-center bg-primary-200 pt-16">
         {/* <UserProfile/> */}
         <Game />
       </div>

@@ -1,11 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-} from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import { values } from "../data/valuestest.json";
+
+type Phase = "grading" | "reviewing";
 
 interface ValueContextType {
   currentIndex: number;
@@ -16,6 +13,8 @@ interface ValueContextType {
   previous: () => void;
   isComplete: boolean;
   totalValues: number;
+  phase: Phase;
+  topValues: { name: string; description: string }[];
 }
 
 const ValueContext = createContext<ValueContextType | null>(null);
@@ -23,6 +22,8 @@ const ValueContext = createContext<ValueContextType | null>(null);
 export const ValueProvider = ({ children }: { children: ReactNode }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [ratings, setRatings] = useState<Record<string, number>>({});
+  const [phase, setPhase] = useState<Phase>("grading");
+  const [topValues, setTopValues] = useState<{ name: string; description: string }[]>([]);
 
   function rate(valueId: string, rating: number) {
     console.log(`${valueId}: ${rating}`);
@@ -41,33 +42,37 @@ export const ValueProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
-  const isComplete =
-    currentIndex === values.length - 1 &&
+  const isComplete = currentIndex === values.length - 1 &&
     ratings[values[currentIndex].name] !== undefined;
 
+  // When grading is complete, find top values and move to reviewing phase
   useEffect(() => {
     if (isComplete) {
-      const topRated = Object.entries(ratings)
-        .filter(([_, rating]) => rating > 8)
-        .map(([valueId, rating]) => ({ value: valueId, rating }));
-
-      console.log("Top rated values:", topRated);
+      const top = values.filter((v) => (ratings[v.name] ?? 0) > 8);
+      console.log("Top rated values:", top);
+      setTopValues(top);
+      setPhase("reviewing");
+      setCurrentIndex(0); // reset index for the reviewing phase
     }
   }, [isComplete]);
 
+  const currentValue = phase === "grading"
+    ? values[currentIndex]
+    : topValues[currentIndex];
+
   return (
-    <ValueContext.Provider
-      value={{
-        currentIndex,
-        currentValue: values[currentIndex],
-        ratings,
-        rate,
-        next,
-        previous,
-        isComplete,
-        totalValues: values.length,
-      }}
-    >
+    <ValueContext.Provider value={{
+      currentIndex,
+      currentValue,
+      ratings,
+      rate,
+      next,
+      previous,
+      isComplete,
+      totalValues: phase === "grading" ? values.length : topValues.length,
+      phase,
+      topValues,
+    }}>
       {children}
     </ValueContext.Provider>
   );

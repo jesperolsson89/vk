@@ -25,7 +25,7 @@ const Header = () => {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-primary-600 border-b border-primary-700 shadow-sm px-6 py-3 flex items-center justify-between">
+    <div className="fixed h-16 top-0 left-0 right-0 z-50 bg-primary-600 border-b border-primary-700 shadow-sm px-6 py-3 flex items-center justify-between">
       <h1 className="text-text-light font-semibold text-3xl flex"><img src={logo} className="h-8 mr-2 my-0.5"></img>Värderingskollen</h1>
 
       {isLoading ? null : user ? (
