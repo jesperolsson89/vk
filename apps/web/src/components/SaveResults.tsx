@@ -1,5 +1,6 @@
 import { Save } from "lucide-react";
 import { useValue } from "../context/ValueContext";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   chosen: string[];
@@ -7,10 +8,11 @@ interface Props {
 
 const SaveResults = ({ chosen }: Props) => {
   const { saveResults } = useValue();
+  const navigate = useNavigate();
 
   async function handleSave() {
     await saveResults(chosen);
-    alert("Resultat sparat!");
+    navigate("/profile");
   }
 
   return (

@@ -130,6 +130,7 @@ const ValueReview = () => {
   }
 
   return (
+    <div className="flex flex-col items-center w-full pb-24">
     <DndContext
       collisionDetection={closestCorners}
       onDragStart={handleDragStart}
@@ -206,6 +207,7 @@ const ValueReview = () => {
       </DragOverlay>
       <SaveResults chosen={chosen.map((v) => v.name)} />
     </DndContext>
+    </div>
   );
 };
 

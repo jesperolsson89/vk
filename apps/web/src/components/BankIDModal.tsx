@@ -93,15 +93,15 @@ const BankIDModal = ({ onClose }: Props) => {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl p-8 w-full max-w-sm shadow-xl animate-[slideUp_0.2s_ease]"
+        className="bg-white rounded-2xl w-full max-w-sm shadow-xl animate-[slideUp_0.2s_ease]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <img src={logo} className="h-16 object-contain" />
+        <div className="flex justify-between items-start">
+          <img src={logo} className="h-24 object-contain" />
           <button
             onClick={onClose}
-            className="text-neutral-400 hover:text-neutral-600 cursor-pointer text-2xl"
+            className="text-neutral-400 hover:text-neutral-600 cursor-pointer text-4xl p-4"
           >
             ✕
           </button>
@@ -109,19 +109,19 @@ const BankIDModal = ({ onClose }: Props) => {
 
         {/* Choose device */}
         {step === "choose" && (
-          <div className="flex flex-col gap-3">
-            <h2 className="text-lg font-semibold text-neutral-800 mb-2">
+          <div className="flex flex-col gap-3 p-8">
+            <h2 className="text-xl font-semibold text-neutral-800 mb-2">
               Logga in med BankID
             </h2>
             <button
               onClick={() => startAuth(true)}
-              className="bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl font-medium transition-colors cursor-pointer"
+              className="bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-xl font-bold transition-colors cursor-pointer"
             >
               BankID på den här enheten
             </button>
             <button
               onClick={() => startAuth(false)}
-              className="border border-primary-600 text-primary-600 hover:bg-primary-50 py-3 rounded-xl font-medium transition-colors cursor-pointer"
+              className="border border-primary-600 text-primary-600 hover:bg-primary-50 py-3 rounded-xl font-bold transition-colors cursor-pointer"
             >
               BankID på en annan enhet
             </button>
@@ -136,7 +136,7 @@ const BankIDModal = ({ onClose }: Props) => {
             </p>
             <button
               onClick={() => setStep("choose")}
-              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer"
+              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer p-3 m-3"
             >
               Avbryt
             </button>
@@ -155,7 +155,7 @@ const BankIDModal = ({ onClose }: Props) => {
             <p className="text-sm text-neutral-500">{hint}</p>
             <button
               onClick={() => setStep("choose")}
-              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer"
+              className="text-sm text-neutral-400 hover:text-neutral-600 cursor-pointer p-3 m-3"
             >
               Avbryt
             </button>
