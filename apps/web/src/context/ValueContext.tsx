@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import type { ReactNode } from "react";
-import { values } from "../data/valuestest.json";
+import { values } from "../data/values.json";
 
 type Phase = "grading" | "reviewing";
 

@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import BankButton from "./BankButton";
 import pp from "../assets/account.svg";
 import logo from "../assets/favicon.png";
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { user, logout, isLoading } = useUser();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
